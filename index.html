@@ -2,93 +2,126 @@
 <html lang="kk">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Арқалық футбол турнирі</title>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Rubik', sans-serif;
+      padding: 0;
+      font-family: Arial, sans-serif;
       color: white;
-      background: url('https://llf-ast.kz/images/WhatsApp_Image_2025-03-30_at_14.49.54_1.jpeg') no-repeat center center fixed;
+      background-image: url('https://llf-ast.kz/images/WhatsApp_Image_2025-03-30_at_14.49.54_1.jpeg');
       background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       text-align: center;
     }
 
     .overlay {
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgba(0, 0, 0, 0.5);
       padding: 30px;
       min-height: 100vh;
     }
 
     h1 {
       font-size: 42px;
-      margin-top: 30px;
+      margin-top: 0;
     }
 
     p {
       font-size: 22px;
-      margin: 10px 0;
+      max-width: 800px;
+      margin: 10px auto;
     }
 
     .button {
-      display: inline-block;
-      margin: 20px 10px;
-      padding: 15px 25px;
       background-color: #25D366;
       color: white;
-      text-decoration: none;
+      padding: 15px 30px;
       font-size: 20px;
+      border: none;
       border-radius: 10px;
-    }
-
-    .instagram {
-      background-color: #E1306C;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
     }
 
     .calendar {
-      margin-top: 40px;
-      font-size: 20px;
-      background-color: rgba(255,255,255,0.1);
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
       padding: 20px;
-      border-radius: 15px;
+      margin-top: 30px;
       display: inline-block;
     }
 
-    .highlight {
-      color: #FFD700;
-      font-weight: bold;
+    .calendar table {
+      color: white;
+      font-size: 20px;
+      border-collapse: collapse;
     }
 
-    iframe {
-      margin-top: 30px;
-      border-radius: 10px;
+    .calendar td, .calendar th {
+      padding: 10px;
+      border: 1px solid white;
+    }
+
+    .highlight {
+      background-color: #f39c12;
+      color: black;
+      font-weight: bold;
+      border-radius: 50%;
+    }
+
+    audio {
+      display: none;
     }
   </style>
 </head>
 <body>
   <div class="overlay">
     <h1>Арқалық қаласында футбол турнирі! ⚽</h1>
-
-    <p>📅 Өтетін күні: <span class="highlight">25-26 Шілде</span></p>
+    <p>Достар! Арқалық қаласында алғаш рет әуесқой футболшылар арасында турнир өтеді. Біз барлық команда мүшелерін қатысуға шақырамыз! 💪</p>
+    <p>📅 Өтетін күні: <strong>25–26 Шілде</strong></p>
     <p>📍 Өтетін орны: Арқалық</p>
-    <p>💰 Жүлде қоры: <strong>500 000 ₸</strong></p>
+    <p>💰 Жүлде қоры: 500 000 тг</p>
     <p>👥 Қатысушы командалар саны: 12 команда</p>
-    <p>📌 Формат: 5x5</p>
+    <p>📌 Турнир форматы: 5x5</p>
     <p>🎉 Бұл нағыз тартысты және қызықты дода болмақ!</p>
+    <p>📝 Тіркеу басталып кетті! Өзіңді және командаңды көрсетіп, бас жүлдеге талас!</p>
+    <p>Тіркелу немесе қосымша ақпарат үшін — <strong>@inter_dem_qazaqstan</strong> Instagram парақшасына кіріңіз немесе Direct жазып қойыңыз 📩</p>
 
-    <p>📝 Тіркеу басталып кетті! Командаңды жинап, тіркел!</p>
-
-    <a class="button" href="https://wa.me/87711660306" target="_blank">Whatsapp арқылы тіркелу</a>
-    <a class="button instagram" href="https://www.instagram.com/inter_dem_qazaqstan" target="_blank">@inter_dem_qazaqstan</a>
+    <a class="button" href="https://wa.me/770711660306" target="_blank">WhatsApp арқылы тіркелу</a>
 
     <div class="calendar">
-      <p>📆 Турнир күндері:</p>
-      <p><span class="highlight">25 Шілде (бейсенбі)</span></p>
-      <p><span class="highlight">26 Шілде (жұма)</span></p>
+      <h2>📅 Шілде 2025</h2>
+      <table>
+        <tr>
+          <th>Дс</th><th>Сс</th><th>Ср</th><th>Бс</th><th>Жм</th><th>Сн</th><th>Жк</th>
+        </tr>
+        <tr>
+          <td>30</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+        </tr>
+        <tr>
+          <td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+        </tr>
+        <tr>
+          <td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td>
+        </tr>
+        <tr>
+          <td>21</td><td>22</td><td>23</td><td>24</td>
+          <td class="highlight">25</td>
+          <td class="highlight">26</td>
+          <td>27</td>
+        </tr>
+        <tr>
+          <td>28</td><td>29</td><td>30</td><td>31</td><td>1</td><td>2</td><td>3</td>
+        </tr>
+      </table>
     </div>
-
-    <!-- Музыка (автоигра через YouTube) -->
-    <iframe width="0" height="0" src="https://www.youtube.com/embed/onMerjLAeGM?autoplay=1&loop=1&playlist=onMerjLAeGM" frameborder="0" allow="autoplay" allowfullscreen></iframe>
   </div>
+
+  <audio autoplay loop>
+    <source src="https://files.catbox.moe/4dgan5.mp3" type="audio/mpeg">
+  </audio>
 </body>
 </html>
