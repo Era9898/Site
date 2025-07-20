@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="kz">
+<html lang="kk">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>IDQ CUP 2025 – Арқалық</title>
+  <title>IDQ CUP 2025 - Арқалық</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background-image: url('https://llf-ast.kz/images/WhatsApp_Image_2025-03-30_at_14.49.54_1.jpeg');
       background-size: cover;
       background-position: center;
       color: white;
       text-shadow: 1px 1px 2px black;
+      overflow-x: hidden;
     }
 
     .container {
@@ -20,27 +21,32 @@
       padding: 40px 20px;
       background-color: rgba(0, 0, 0, 0.6);
       max-width: 800px;
-      margin: 50px auto;
+      margin: 80px auto 40px auto;
       border-radius: 15px;
+      animation: fadeIn 2s ease-in;
+    }
+
+    h1, p {
+      animation: fadeInUp 1.2s ease-in;
     }
 
     h1 {
-      font-size: 44px;
+      font-size: 42px;
       margin-bottom: 20px;
     }
 
     p {
-      font-size: 24px;
-      margin-bottom: 20px;
+      font-size: 22px;
+      margin-bottom: 16px;
     }
 
     .btn {
       display: inline-block;
       background-color: #25D366;
       color: white;
-      padding: 15px 25px;
+      padding: 14px 22px;
       margin: 10px;
-      font-size: 22px;
+      font-size: 20px;
       border: none;
       border-radius: 10px;
       text-decoration: none;
@@ -58,24 +64,128 @@
     .instagram-btn:hover {
       background-color: #c1225e;
     }
+
+    .calendar {
+      margin: 50px auto;
+      text-align: center;
+      font-size: 20px;
+    }
+
+    .calendar table {
+      width: 100%;
+      max-width: 500px;
+      margin: auto;
+      color: white;
+    }
+
+    .calendar th {
+      padding: 10px;
+      font-size: 22px;
+    }
+
+    .calendar td {
+      padding: 10px;
+    }
+
+    .highlight {
+      border: 3px solid red;
+      border-radius: 50%;
+      background-color: rgba(255,0,0,0.2);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .audio-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(0,0,0,0.5);
+      border: none;
+      color: white;
+      font-size: 26px;
+      cursor: pointer;
+      padding: 10px 15px;
+      border-radius: 10px;
+      z-index: 1000;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Арқалық қаласында футбол турнирі! ⚽</h1>
-    <p>Достар! Арқалық қаласында алғаш рет әуесқой футболшылар арасында <strong>IDQ CUP 2025</strong> турнирі өтеді. Біз барлық командаларды қатысуға шақырамыз! 💪</p>
-    <p>📅 Өтетін күні: 25–26 шілде</p>
-    <p>📍 Өтетін орны: Жігер стадионы</p>
-    <p>💰 Жүлде қоры: 250 000 теңге</p>
-    <p>👥 Қатысушы командалар саны: 8 команда</p>
-    <p>📌 Турнир форматы: 7x7</p>
-    <p>🎉 Бұл — нағыз тартысты әрі қызықты дода болмақ!</p>
-    <p>📝 Тіркеу басталып кетті!</p>
-    <p>Өзіңді және командаңды көрсетіп, бас жүлдеге талас!</p>
-    <p>Әр командадан 10 үздік ойыншы қосуға рұқсат!</p>
 
-    <a class="btn" href="https://wa.me/77711660306" target="_blank">Жазу WhatsApp арқылы</a>
-    <a class="btn instagram-btn" href="https://www.instagram.com/inter_dem_qazaqstan?igsh=MXM4MW56Y3A0eWE2dw==" target="_blank">Инстаграм парақшасы</a>
-  </div>
+<!-- 🎵 Аудио -->
+<audio id="bg-music" autoplay loop>
+  <source src="https://files.catbox.moe/4dgan5.mp3" type="audio/mpeg">
+  Сіздің браузеріңіз аудионы қолдамайды.
+</audio>
+
+<!-- 🔈 Дыбыс батырмасы -->
+<button class="audio-toggle" onclick="toggleAudio()" title="Музыка қосу/сөндіру">
+  🔈
+</button>
+
+<!-- 📄 Контент -->
+<div class="container">
+  <h1>Арқалық қаласында футбол турнирі! ⚽</h1>
+  <p>Достар! Арқалық қаласында алғаш рет әуесқой футболшылар арасында <strong>IDQ - CUP 2025</strong> турнирі өтеді. Біз барлық команда мүшелерін қатысуға шақырамыз! 💪</p>
+  <p>📅 Өтетін күні: 25-26 Шілде</p>
+  <p>📍 Өтетін орны: Жігер стадионы</p>
+  <p>💰 Жүлде қоры: 250 000 теңге</p>
+  <p>👥 Қатысушы командалар саны: 8 команда</p>
+  <p>📌 Турнир форматы: 7х7</p>
+  <p>🎉 Бұл нағыз тартысты және қызықты дода болмақ!</p>
+  <p>📝 Тіркеу басталып кетті!</p>
+  <p>Өзіңді және командаңды көрсетіп, бас жүлдеге талас!</p>
+  <p>Әр командадан 10 үздік ойыншы қосуға рұқсат!</p>
+  <p>Тіркелу немесе қосымша ақпарат үшін: 8771-166-0306 нөміріне хабарласыңыз.</p>
+  
+  <a class="btn" href="https://wa.me/77711660306" target="_blank">WhatsApp арқылы жазу</a>
+  <a class="btn instagram-btn" href="https://www.instagram.com/inter_dem_qazaqstan" target="_blank">Инстаграм парақшасы</a>
+</div>
+
+<!-- 📆 Күнтізбе -->
+<div class="calendar">
+  <table>
+    <tr><th colspan="7">Шілде 2025</th></tr>
+    <tr>
+      <th>Дс</th><th>Сс</th><th>Ср</th><th>Бс</th><th>Жм</th><th>Сб</th><th>Жс</th>
+    </tr>
+    <tr><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+    <tr><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td></tr>
+    <tr><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td></tr>
+    <tr>
+      <td>21</td><td>22</td><td>23</td><td>24</td>
+      <td class="highlight">25</td>
+      <td class="highlight">26</td>
+      <td>27</td>
+    </tr>
+    <tr><td>28</td><td>29</td><td>30</td><td>31</td><td></td><td></td><td></td></tr>
+  </table>
+</div>
+
+<script>
+  const music = document.getElementById('bg-music');
+  const button = document.querySelector('.audio-toggle');
+  let playing = true;
+
+  function toggleAudio() {
+    if (playing) {
+      music.pause();
+      button.textContent = '🔇';
+    } else {
+      music.play();
+      button.textContent = '🔈';
+    }
+    playing = !playing;
+  }
+</script>
+
 </body>
 </html>
