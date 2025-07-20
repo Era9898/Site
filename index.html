@@ -1,18 +1,36 @@
 <!DOCTYPE html>
-<html lang="kz">
+<html lang="kk">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Футбол Турнир - Арқалық</title>
+  <title>Футбол Турнирі - Арқалық</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Montserrat', sans-serif;
       background-image: url('https://llf-ast.kz/images/WhatsApp_Image_2025-03-30_at_14.49.54_1.jpeg');
       background-size: cover;
       background-position: center;
       color: white;
       text-shadow: 1px 1px 2px black;
+      overflow-x: hidden;
+    }
+
+    .music-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      font-size: 32px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      z-index: 1000;
     }
 
     .container {
@@ -20,9 +38,19 @@
       padding: 40px 20px;
       background-color: rgba(0, 0, 0, 0.6);
       max-width: 800px;
-      margin: 100px auto 50px auto;
+      margin: 80px auto;
       border-radius: 15px;
-      position: relative;
+    }
+
+    h1, p {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-in-out;
+    }
+
+    .show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     h1 {
@@ -31,7 +59,7 @@
     }
 
     p {
-      font-size: 24px;
+      font-size: 22px;
       margin-bottom: 20px;
     }
 
@@ -41,12 +69,11 @@
       color: white;
       padding: 15px 25px;
       margin: 10px;
-      font-size: 22px;
+      font-size: 20px;
       border: none;
       border-radius: 10px;
       text-decoration: none;
       transition: background 0.3s;
-      cursor: pointer;
     }
 
     .btn:hover {
@@ -61,72 +88,99 @@
       background-color: #c1225e;
     }
 
-    #musicToggle {
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      font-size: 32px;
-      background: rgba(0,0,0,0.4);
-      border: none;
-      color: white;
-      cursor: pointer;
-      z-index: 1000;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      text-align: center;
-      line-height: 50px;
-      box-shadow: 0 0 10px black;
+    .calendar {
+      margin-top: 40px;
+      background-color: white;
+      color: black;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    #musicToggle:hover {
-      transform: scale(1.1);
+    .calendar h2 {
+      margin: 0 0 10px;
+      font-size: 24px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    td {
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+
+    .highlight {
+      background-color: #ff4d4d;
+      color: white;
+      border-radius: 50%;
     }
   </style>
 </head>
 <body>
 
-  <button id="musicToggle" onclick="toggleMusic()">🔇</button>
-
-  <div class="container">
-    <h1>Арқалық қаласында футбол турнирі! ⚽</h1>
-    <p>Достар! Арқалық қаласында алғаш рет әуесқой футболшылар арасында турнир өтеді. Біз барлық команда мүшелерін қатысуға шақырамыз! 💪</p>
-    <p>📅 Өтетін күні: 25-26 Шілде</p>
-    <p>📍 Өтетін орны: Арқалық</p>
-    <p>💰 Жүлде қоры: 500 000 тг</p>
-    <p>👥 Қатысушы командалар саны: 12 команда</p>
-    <p>📌 Турнир форматы: 5x5</p>
-    <p>🎉 Бұл нағыз тартысты және қызықты дода болмақ!</p>
-    <p>📝 Тіркеу басталып кетті!</p>
-    <p>Өзіңді және командаңды көрсетіп, бас жүлдеге талас!</p>
-    <p>Тіркелу немесе қосымша ақпарат үшін — Директке жазыңыз 📩 немесе мына номерге хабарласыңыз.</p>
-
-    <a class="btn" href="https://wa.me/77711660306" target="_blank">Жазу WhatsApp арқылы</a>
-    <a class="btn instagram-btn" href="https://www.instagram.com/inter_dem_qazaqstan" target="_blank">Инстаграм парақшасы</a>
-  </div>
-
-  <audio id="bgMusic" loop>
+  <button class="music-toggle" onclick="toggleMusic()">🎵</button>
+  <audio id="background-music" loop>
     <source src="https://files.catbox.moe/4dgan5.mp3" type="audio/mpeg">
-    Сіздің браузеріңіз аудионы қолдамайды.
   </audio>
 
+  <div class="container">
+    <h1 class="animate">Арқалық қаласында футбол турнирі! ⚽</h1>
+    <p class="animate">Достар! Арқалық қаласында алғаш рет әуесқой футболшылар арасында турнир өтеді. Барлық командаларды қатысуға шақырамыз!</p>
+    <p class="animate">📅 Өтетін күні: 25-26 Шілде</p>
+    <p class="animate">📍 Өтетін орны: Арқалық</p>
+    <p class="animate">💰 Жүлде қоры: 500 000 тг</p>
+    <p class="animate">👥 Қатысушы командалар саны: 12 команда</p>
+    <p class="animate">📌 Турнир форматы: 5x5</p>
+    <p class="animate">📝 Тіркеу басталды!</p>
+    <p class="animate">Жеңімпаз болуға мүмкіндігіңді жіберіп алма!</p>
+    <p class="animate">Толық ақпарат үшін – WhatsApp немесе Instagram арқылы байланысыңыз.</p>
+
+    <a class="btn animate" href="https://wa.me/77711660306" target="_blank">WhatsApp арқылы жазу</a>
+    <a class="btn instagram-btn animate" href="https://www.instagram.com/inter_dem_qazaqstan" target="_blank">Инстаграм парақшасы</a>
+
+    <div class="calendar animate">
+      <h2>Шілде 2025</h2>
+      <table>
+        <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+        <tr><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td></tr>
+        <tr><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td></tr>
+        <tr><td>22</td><td>23</td><td>24</td><td class="highlight">25</td><td class="highlight">26</td><td>27</td><td>28</td></tr>
+        <tr><td>29</td><td>30</td><td>31</td><td></td><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+  </div>
+
   <script>
-    const music = document.getElementById("bgMusic");
-    const toggleBtn = document.getElementById("musicToggle");
-    let isPlaying = false;
+    const music = document.getElementById("background-music");
+    const toggleBtn = document.querySelector(".music-toggle");
 
     function toggleMusic() {
-      if (!isPlaying) {
+      if (music.paused) {
         music.play();
-        toggleBtn.textContent = "🎵";
-        isPlaying = true;
+        toggleBtn.textContent = "🔊";
       } else {
         music.pause();
-        music.currentTime = 0;
-        toggleBtn.textContent = "🔇";
-        isPlaying = false;
+        toggleBtn.textContent = "🎵";
       }
     }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.animate').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
