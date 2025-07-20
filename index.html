@@ -60,48 +60,33 @@
     }
 
     .calendar {
-      margin-top: 40px;
-    }
-
-    table.calendar-table {
-      margin: 0 auto;
-      border-collapse: collapse;
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    table.calendar-table th,
-    table.calendar-table td {
-      padding: 12px 16px;
-      border: 1px solid white;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+      margin-top: 30px;
       font-size: 20px;
-      text-align: center;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    table.calendar-table th {
-      background-color: rgba(0, 0, 0, 0.4);
+    .day {
+      padding: 12px 0;
+      background: rgba(255,255,255,0.1);
+      border-radius: 6px;
     }
 
     .highlight {
-      background-color: red;
-      color: white;
-      border-radius: 50%;
+      background: red;
+      font-weight: bold;
     }
 
-    .calendar-title {
-      font-size: 30px;
-      margin-bottom: 15px;
+    .audio-player {
+      margin-top: 25px;
     }
 
-    .audio-btn {
-      background-color: #ffc107;
-      color: black;
-      margin-bottom: 20px;
-    }
-
-    .audio-btn:hover {
-      background-color: #e0a800;
+    .audio-player audio {
+      width: 250px;
     }
   </style>
 </head>
@@ -118,50 +103,30 @@
     <p>📝 Тіркеу басталып кетті!</p>
     <p>Өзіңді және командаңды көрсетіп, бас жүлдеге талас!</p>
     <p>Тіркелу немесе қосымша ақпарат үшін — Директке жазыңыз 📩 немесе мына номерге хабарласыңыз.</p>
-    
+
     <a class="btn" href="https://wa.me/77711660306" target="_blank">Жазу WhatsApp арқылы</a>
     <a class="btn instagram-btn" href="https://www.instagram.com/inter_dem_qazaqstan?igsh=MXM4MW56Y3A0eWE2dw==" target="_blank">Инстаграм парақшасы</a>
-    <br><br>
-    <button class="btn audio-btn" onclick="playAudio()">🎵 Музыканы қосу</button>
-
-    <audio id="bg-music" loop>
-      <source src="https://files.catbox.moe/4dgan5.mp3" type="audio/mpeg">
-      Браузер музыка ойнауды қолдамайды.
-    </audio>
 
     <div class="calendar">
-      <div class="calendar-title">🗓 Шілде 2025</div>
-      <table class="calendar-table">
-        <tr>
-          <th>Дс</th><th>Сс</th><th>Ср</th><th>Бс</th><th>Жм</th><th>Сн</th><th>Жк</th>
-        </tr>
-        <tr>
-          <td>30</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
-        </tr>
-        <tr>
-          <td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
-        </tr>
-        <tr>
-          <td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td>
-        </tr>
-        <tr>
-          <td>21</td><td>22</td><td>23</td><td>24</td>
-          <td class="highlight">25</td>
-          <td class="highlight">26</td>
-          <td>27</td>
-        </tr>
-        <tr>
-          <td>28</td><td>29</td><td>30</td><td>31</td><td>1</td><td>2</td><td>3</td>
-        </tr>
-      </table>
+      <div class="day">Дс</div><div class="day">Сс</div><div class="day">Ср</div>
+      <div class="day">Бс</div><div class="day">Жм</div><div class="day">Сб</div><div class="day">Жс</div>
+      <div class="day"></div><div class="day">1</div><div class="day">2</div><div class="day">3</div>
+      <div class="day">4</div><div class="day">5</div><div class="day">6</div>
+      <div class="day">7</div><div class="day">8</div><div class="day">9</div><div class="day">10</div>
+      <div class="day">11</div><div class="day">12</div><div class="day">13</div>
+      <div class="day">14</div><div class="day">15</div><div class="day">16</div><div class="day">17</div>
+      <div class="day">18</div><div class="day">19</div><div class="day">20</div>
+      <div class="day">21</div><div class="day">22</div><div class="day">23</div><div class="day">24</div>
+      <div class="day highlight">25</div><div class="day highlight">26</div><div class="day">27</div>
+      <div class="day">28</div><div class="day">29</div><div class="day">30</div><div class="day">31</div>
+    </div>
+
+    <div class="audio-player">
+      <audio controls autoplay loop>
+        <source src="https://files.catbox.moe/4dgan5.mp3" type="audio/mp3">
+        Сіздің браузеріңіз аудионы қолдамайды.
+      </audio>
     </div>
   </div>
-
-  <script>
-    function playAudio() {
-      const audio = document.getElementById('bg-music');
-      audio.play();
-    }
-  </script>
 </body>
 </html>
