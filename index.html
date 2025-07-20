@@ -20,8 +20,9 @@
       padding: 40px 20px;
       background-color: rgba(0, 0, 0, 0.6);
       max-width: 800px;
-      margin: 50px auto;
+      margin: 100px auto 50px auto;
       border-radius: 15px;
+      position: relative;
     }
 
     h1 {
@@ -45,6 +46,7 @@
       border-radius: 10px;
       text-decoration: none;
       transition: background 0.3s;
+      cursor: pointer;
     }
 
     .btn:hover {
@@ -59,43 +61,33 @@
       background-color: #c1225e;
     }
 
-    .calendar-title {
-      font-size: 28px;
-      margin-top: 30px;
-      margin-bottom: 10px;
-      font-weight: bold;
+    #musicToggle {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      font-size: 32px;
+      background: rgba(0,0,0,0.4);
+      border: none;
+      color: white;
+      cursor: pointer;
+      z-index: 1000;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      box-shadow: 0 0 10px black;
     }
 
-    .calendar {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 8px;
-      font-size: 18px;
-      max-width: 500px;
-      margin: 0 auto;
-    }
-
-    .day {
-      padding: 10px 0;
-      background: rgba(255,255,255,0.1);
-      border-radius: 6px;
-    }
-
-    .highlight {
-      background: red;
-      font-weight: bold;
-    }
-
-    .audio-player {
-      margin-top: 25px;
-    }
-
-    .audio-player audio {
-      width: 220px;
+    #musicToggle:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
 <body>
+
+  <button id="musicToggle" onclick="toggleMusic()">🔇</button>
+
   <div class="container">
     <h1>Арқалық қаласында футбол турнирі! ⚽</h1>
     <p>Достар! Арқалық қаласында алғаш рет әуесқой футболшылар арасында турнир өтеді. Біз барлық команда мүшелерін қатысуға шақырамыз! 💪</p>
@@ -110,30 +102,31 @@
     <p>Тіркелу немесе қосымша ақпарат үшін — Директке жазыңыз 📩 немесе мына номерге хабарласыңыз.</p>
 
     <a class="btn" href="https://wa.me/77711660306" target="_blank">Жазу WhatsApp арқылы</a>
-    <a class="btn instagram-btn" href="https://www.instagram.com/inter_dem_qazaqstan/" target="_blank">Инстаграм парақшасы</a>
-
-    <div class="calendar-title">🗓 Шілде / Июль</div>
-
-    <div class="calendar">
-      <div class="day">Дс</div><div class="day">Сс</div><div class="day">Ср</div>
-      <div class="day">Бс</div><div class="day">Жм</div><div class="day">Сб</div><div class="day">Жс</div>
-      <div class="day"></div><div class="day">1</div><div class="day">2</div><div class="day">3</div>
-      <div class="day">4</div><div class="day">5</div><div class="day">6</div>
-      <div class="day">7</div><div class="day">8</div><div class="day">9</div><div class="day">10</div>
-      <div class="day">11</div><div class="day">12</div><div class="day">13</div>
-      <div class="day">14</div><div class="day">15</div><div class="day">16</div><div class="day">17</div>
-      <div class="day">18</div><div class="day">19</div><div class="day">20</div>
-      <div class="day">21</div><div class="day">22</div><div class="day">23</div><div class="day">24</div>
-      <div class="day highlight">25</div><div class="day highlight">26</div><div class="day">27</div>
-      <div class="day">28</div><div class="day">29</div><div class="day">30</div><div class="day">31</div>
-    </div>
-
-    <div class="audio-player">
-      <audio controls autoplay loop>
-        <source src="https://files.catbox.moe/4dgan5.mp3" type="audio/mp3">
-        Сіздің браузеріңіз аудионы қолдамайды.
-      </audio>
-    </div>
+    <a class="btn instagram-btn" href="https://www.instagram.com/inter_dem_qazaqstan" target="_blank">Инстаграм парақшасы</a>
   </div>
+
+  <audio id="bgMusic" loop>
+    <source src="https://files.catbox.moe/4dgan5.mp3" type="audio/mpeg">
+    Сіздің браузеріңіз аудионы қолдамайды.
+  </audio>
+
+  <script>
+    const music = document.getElementById("bgMusic");
+    const toggleBtn = document.getElementById("musicToggle");
+    let isPlaying = false;
+
+    function toggleMusic() {
+      if (!isPlaying) {
+        music.play();
+        toggleBtn.textContent = "🎵";
+        isPlaying = true;
+      } else {
+        music.pause();
+        music.currentTime = 0;
+        toggleBtn.textContent = "🔇";
+        isPlaying = false;
+      }
+    }
+  </script>
 </body>
 </html>
